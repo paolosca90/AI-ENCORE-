@@ -79,7 +79,23 @@ export async function processMarketData(symbol: string, marketData: any[], date:
 
 // API Definitions
 import { api } from "encore.dev/api";
-import type { MarketDataPoint } from "~backend/analysis/market-data";
+
+// Define the MarketDataPoint interface locally to avoid import issues
+interface MarketDataPoint {
+  timestamp: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  spread: number;
+  indicators: {
+    rsi: number;
+    macd: number;
+    atr: number;
+  };
+  source: 'MT5' | 'FALLBACK';
+}
 
 // Request and response types for our API
 interface GetEnrichedMarketDataRequest {

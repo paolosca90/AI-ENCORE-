@@ -1,7 +1,9 @@
 // Test script for data enrichment service
 // This script will test the functionality of our data enrichment modules
 
-import { processCMEData, processCBOEData, fetchFinnhubOptionsData } from './sources';
+import { processCMEData } from './sources/cme';
+import { processCBOEData } from './sources/cboe';
+import { fetchFinnhubOptionsData } from './sources/finnhub';
 
 async function runTests() {
     console.log('Starting data enrichment tests...');
